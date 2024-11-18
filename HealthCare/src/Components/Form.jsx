@@ -1,26 +1,29 @@
 import React, { useState } from "react";
 
 const Form = () => {
+  //form inputs saving in a object using useState hook to make the form statefull
   const [formData, setFormData] = useState({
     name: "",
     age: "",
     file: null,
   });
 
+  //handling the changes in a form through the spread operator to save the before data with the current data
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
+ //handling the changes in the file input
   const handleFileChange = (e) => {
     setFormData({ ...formData, file: e.target.files[0] });
   };
-
+ //handling the submit button and showing the alert once the form sucessfully submitted
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form Data Submitted:", formData);
 
     alert(`Hey ${formData.name},Form submitted successfully!`);
+    //clearing the form inputs after submission
     setFormData({
         name:"",
         age:"",
