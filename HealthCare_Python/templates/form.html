@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./form.css">
+    {% comment %} tailwind styles imported here {% endcomment %}
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Healthcare Dashboard</title>
 </head>
 <body>
     <div class="flex justify-center items-center min-h-screen bg-gradient-to-r from-[#23177ae2] to-[#23177ac7]">
         
-
+        {% comment %} post method is used to send the form to server {% endcomment %}
         <form method="POST" enctype="multipart/form-data" class="w-full max-w-md bg-[#605EA1] p-6 rounded-lg shadow-2xl border-white border-2">
+            {% comment %} server side rendering used to show the message once the form is read by server {% endcomment %}
             {% with messages = get_flashed_messages() %}
         {% if messages %}
             <div class="bg-yellow-500 text-white font-bold p-2 text-center rounded-xl">{{ messages[0] }}</div>
